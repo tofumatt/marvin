@@ -1,5 +1,6 @@
 [
     "ackbar.coffee",
+    "brb.coffee",
     "github-status",
     "party_gifs.coffee",
     "redis-brain.coffee",
