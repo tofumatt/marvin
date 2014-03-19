@@ -1,0 +1,33 @@
+{
+  "name": "marvin-the-paranoid-android",
+  "version": "2.7.1",
+  "private": true,
+  "author": "tofumatt",
+  "keywords": [
+    "github",
+    "hubot",
+    "campfire",
+    "bot"
+  ],
+  "description": "It has a huge brain",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/tofumatt/marvin/raw/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tofumatt/marvin.git"
+  },
+  "dependencies": {
+    "hubot": ">= 2.6.0 < 3.0.0",
+    "hubot-dogeme": "~1.0.0",
+    "hubot-scripts": ">= 2.5.0 < 3.0.0",
+    "hubot-irc": "~0.2.1"
+  },
+  "engines": {
+    "node": ">= 0.8.x",
+    "npm": ">= 1.1.x"
+  }
+}
