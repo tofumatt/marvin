@@ -19,7 +19,8 @@ module.exports = (robot) ->
     "http://media.giphy.com/media/Qhrh5BB78Z1qU/giphy.gif",
     "http://media.giphy.com/media/12UUxHcN25DqqQ/giphy.gif",
     "http://media.giphy.com/media/gPa9YSHtPnj4A/giphy.gif",
-    "http://i.imgur.com/S7QbwIa.gif"
+    "http://i.imgur.com/S7QbwIa.gif",
+    "http://i.imgur.com/CVi00sP.gif"
   ]
 
   robot.hear /(top that|teen witch)/i, (msg) ->
