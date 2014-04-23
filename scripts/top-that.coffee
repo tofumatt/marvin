@@ -21,5 +21,5 @@ module.exports = (robot) ->
     "http://media.giphy.com/media/gPa9YSHtPnj4A/giphy.gif"
   ]
 
-  robot.hear /(top that)/i, (msg) ->
+  robot.hear /(top that|teen witch)/i, (msg) ->
     msg.send msg.random(topThese)
