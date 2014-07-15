@@ -6,14 +6,13 @@
 
 Bz = require "bz"
 Client = Bz.createClient
-#  url: "https://bugzilla.mozilla.org/"
+  url: "https://api-dev.bugzilla.mozilla.org/test/1.3/"
 
 module.exports = (robot) ->
   robot.hear /bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(\d+)/i, (msg) ->
     msg.send "Got bug request for #{msg.match[1]}..."
     Client.getBug msg.match[1], (error, bug) ->
       msg.send "Request made"
-      return msg.send error if error
       return msg.send error if error
       title = "Bug #{bug.id}"
       title += " (#{bug.alias})" if bug.alias
