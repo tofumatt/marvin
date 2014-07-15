@@ -6,7 +6,7 @@
 
 Bz = require "bz"
 Client = Bz.createClient
-  url: "https://api-dev.bugzilla.mozilla.org/1.0/"
+  url: "https://bugzilla.mozilla.org/"
 
 module.exports = (robot) ->
   robot.hear /bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(\d+)/i, (msg) ->
