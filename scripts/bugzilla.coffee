@@ -1,21 +1,18 @@
 # Get bug information from bugzilla.
 #
-# Based on https://github.com/zpao/mozilla-hubot-scripts/
-#
-# bug <bugnumber> | <bugURL> - Get bug information.
+# bug <bugnumber> - Get bug information.
 
 Bz = require "bz"
-Client = Bz.createClient
-  url: "https://api-dev.bugzilla.mozilla.org/test/1.3/"
+Client = Bz.createClient({
+  url: "https://api-dev.bugzilla.mozilla.org/1.0/"
+})
 
 module.exports = (robot) ->
-  robot.hear /bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(\d+)/i, (msg) ->
-    msg.send "Got bug request for #{msg.match[1]}..."
+  robot.hear /bug (\d+)/i, (msg) ->
     Client.getBug msg.match[1], (error, bug) ->
-      msg.send "Request made"
-      msg.send error if error
+
       title = "Bug #{bug.id}"
-      # title += " (#{bug.alias})" if bug.alias
+      title += " (#{bug.alias})" if bug.alias
       title += " - #{bug.summary}"
 
       resolution = "#{bug.status}"
@@ -47,6 +44,6 @@ module.exports = (robot) ->
       msg.send matches.join "\n"
 
 makeBugURL = (number, comment) ->
-  url = "http://bugzil.la/#{number}"
+  url = "http//bugzil.la/#{number}"
   url += "##{comment}" if comment
   return url
