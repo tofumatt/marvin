@@ -6,12 +6,14 @@
 
 Bz = require "bz"
 Client = Bz.createClient
-  url: "https://bugzilla.mozilla.org/"
+#  url: "https://bugzilla.mozilla.org/"
 
 module.exports = (robot) ->
   robot.hear /bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(\d+)/i, (msg) ->
     msg.send "Got bug request for #{msg.match[1]}..."
     Client.getBug msg.match[1], (error, bug) ->
+      msg.send "Request made"
+      return msg.send error if error
       return msg.send error if error
       title = "Bug #{bug.id}"
       title += " (#{bug.alias})" if bug.alias
@@ -46,6 +48,6 @@ module.exports = (robot) ->
       msg.send matches.join "\n"
 
 makeBugURL = (number, comment) ->
-  url = "http//bugzil.la/#{number}"
+  url = "http://bugzil.la/#{number}"
   url += "##{comment}" if comment
   return url
