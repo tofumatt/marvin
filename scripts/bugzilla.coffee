@@ -11,7 +11,7 @@ Client = Bz.createClient
 module.exports = (robot) ->
   robot.hear /bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(\d+)/i, (msg) ->
     msg.send "Got bug request for #{msg.match[1]}..."
-    Client.getBug parseInt(msg.match[1], 10), (error, bug) ->
+    Client.getBug msg.match[1], (error, bug) ->
       msg.send "Request made"
       msg.send error if error
       title = "Bug #{bug.id}"
