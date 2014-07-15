@@ -9,7 +9,7 @@ Client = Bz.createClient
   url: "https://api-dev.bugzilla.mozilla.org/1.0/"
 
 module.exports = (robot) ->
-  robot.hear /bug (\d+)|bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(\d+)/i,
+  robot.hear /bug (\d+)|bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(\d+)/i, \
              (msg) ->
     bugID = msg.match[1] || msg.match[2]
     Client.getBug bugID, (error, bug) ->
@@ -47,6 +47,6 @@ module.exports = (robot) ->
       msg.send matches.join "\n"
 
 makeBugURL = (number, comment) ->
-  url = "http://bugzil.la/#{number}"
+  url = "http//bugzil.la/#{number}"
   url += "##{comment}" if comment
   return url
