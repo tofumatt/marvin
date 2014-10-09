@@ -24,5 +24,5 @@ module.exports = (robot) ->
     "http://www.marxist.ca/images/stories/rob-ford-drunk-2.jpg"
   ]
 
-  robot.hear /(Toronto|Torontonians|Rob Ford|Spadina)/i, (msg) ->
+  robot.hear /(Toronto|Rob Ford|Spadina|TTC|CN Tower|drunken stupors)/i, (msg) ->
     msg.send msg.random(fordisms)
